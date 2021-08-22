@@ -1,19 +1,17 @@
 /**
  * 创建
  */
-export class creatRegExp{
-    regExpString:Array<string> =[]
-    regExpFlag=''
+export function creatRegExp(strings: Array<string>, flag: string){
+    return new SRegExpFactory(strings,flag)
+}
+export class SRegExpFactory {
+    regExpString: Array<string> = []
+    regExpFlag = ''
     
-    end=()=>{
-    const reg = new RegExp(this.regExpString.join(''),this.regExpFlag)
-    console.log(reg);
-    
-    return reg
+    end = () => new RegExp(this.regExpString.join(''),this.regExpFlag)
 
-    }
-    constructor(strings:Array<string>,flag:string){
-        this.regExpString=strings;
-        this.regExpFlag=flag;
+    constructor(strings:Array<string>,flag:string) {
+        this.regExpString = strings;
+        this.regExpFlag = flag;
     }
 }
